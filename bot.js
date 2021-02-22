@@ -6,7 +6,7 @@ const client= new Discord.Client()
 client.login(process.env.BOTTOKEN)
 
 client.on('ready',()=>{
-    console.log('👍👍👍👍👍')
+    console.log('Botserver is live')
 })
 
 

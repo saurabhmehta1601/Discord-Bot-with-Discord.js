@@ -1,23 +1,17 @@
 const fetchGif = require('./fetchGif')
+const chats =require('./botChats')
 
 module.exports = async (msg) => {
   
-  if( msg.channel.id == process.env.BOTCHANNELID)  {
-    
-    switch (msg.content) {
-      case "hiii":
-        msg.reply("hii brother");
-        break;
-      case "helloow":
-        msg.reply("hello man hoo are you");
-        break;
-      case "are you fine?":
-        msg.channel.send("yeah totally");
-        break;
-      default:
-        break;
-    }
-}    
+        if(msg.channel.id !== process.env.BOTCHANNELID)
+            return
+
+        chats.forEach((chat)=>{
+        msg.content=msg.content.trim().toLowerCase()
+        if(msg.content===chat.statement.toLowerCase()){
+            msg.reply(chat.reply)
+        }
+    })
 
 if (msg.content.trim().split(" ")[0] === "!gif") {
   fetchGif(msg);
