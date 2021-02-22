@@ -1,5 +1,5 @@
-const fetchGif = require('./fetchGif')
-const chats =require('./botChats')
+const fetchGif = require('./commands/fetchGif')
+const chats =require('./commands/botChats')
 
 module.exports = async (msg) => {
   
